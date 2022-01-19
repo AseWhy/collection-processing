@@ -1,7 +1,15 @@
-io/github/asewhy/collections/support/iIteratorProvider.class
+io/github/asewhy/collections/base/UnsafeDatasource.class
 io/github/asewhy/collections/base/Datasource.class
+io/github/asewhy/collections/support/iUnsafeSupplier.class
 io/github/asewhy/collections/CallbackRangeSource.class
-io/github/asewhy/collections/CallbackPageSource.class
+io/github/asewhy/collections/base/ChunkIterator.class
 io/github/asewhy/collections/CallbackQueueSource.class
+io/github/asewhy/collections/CallbackRangeUnsafeSource.class
+io/github/asewhy/collections/CallbackPageUnsafeSource.class
+io/github/asewhy/collections/CallbackQueueUnsafeSource.class
+io/github/asewhy/collections/support/iIteratorProvider.class
+io/github/asewhy/collections/support/iUnsafeFunction.class
+io/github/asewhy/collections/CallbackPageSource.class
+io/github/asewhy/collections/support/iUnsafeBiFunction.class
 io/github/asewhy/collections/base/PageIterator.class
 io/github/asewhy/collections/base/DatasourceIterator.class
