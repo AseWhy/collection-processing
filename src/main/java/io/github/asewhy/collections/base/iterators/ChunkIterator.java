@@ -1,11 +1,10 @@
-package io.github.asewhy.collections.base;
+package io.github.asewhy.collections.base.iterators;
 
+import io.github.asewhy.collections.base.Datasource;
 import io.github.asewhy.collections.support.iIteratorProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 
 @SuppressWarnings("unused")
 public class ChunkIterator<T> implements iIteratorProvider<Collection<T>> {

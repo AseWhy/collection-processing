@@ -1,18 +1,19 @@
-package io.github.asewhy.collections.base;
+package io.github.asewhy.collections.base.iterators;
 
+import io.github.asewhy.collections.base.Datasource;
 import io.github.asewhy.collections.support.iIteratorProvider;
 
 import java.util.LinkedList;
 
 @SuppressWarnings("unused")
-public class DatasourceIterator<T> implements iIteratorProvider<T> {
+public class RangeIterator<T> implements iIteratorProvider<T> {
     private final Datasource<?, T> source;
     private final Integer step;
     private final LinkedList<T> chunk;
 
     private Integer marker;
 
-    protected DatasourceIterator(Datasource<?, T> source, Integer step) {
+    protected RangeIterator(Datasource<?, T> source, Integer step) {
         this.source = source;
         this.step = step;
         this.marker = 0;
@@ -21,7 +22,9 @@ public class DatasourceIterator<T> implements iIteratorProvider<T> {
 
     @Override
     public boolean hasNext() {
-        if(chunk.size() == 0) {
+        if(chunk.size() > 0) {
+            return true;
+        } else {
             var sample = source.getNextSample(marker, marker + step);
 
             if(sample != null) {
@@ -29,9 +32,9 @@ public class DatasourceIterator<T> implements iIteratorProvider<T> {
 
                 marker += sample.size();
             }
-        }
 
-        return chunk.size() > 0;
+            return chunk.size() > 0;
+        }
     }
 
     @Override
@@ -39,11 +42,11 @@ public class DatasourceIterator<T> implements iIteratorProvider<T> {
         return chunk.pop();
     }
 
-    public static <T> DatasourceIterator<T> of(Datasource<?, T> source, Integer step) {
-        return new DatasourceIterator<>(source, step);
+    public static <T> RangeIterator<T> of(Datasource<?, T> source, Integer step) {
+        return new RangeIterator<>(source, step);
     }
 
-    public static <T> DatasourceIterator<T> of(Datasource<?, T> source) {
-        return new DatasourceIterator<>(source, 500);
+    public static <T> RangeIterator<T> of(Datasource<?, T> source) {
+        return new RangeIterator<>(source, 500);
     }
 }

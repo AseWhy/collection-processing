@@ -1,6 +1,6 @@
 package io.github.asewhy.collections;
 
-import io.github.asewhy.collections.base.PageIterator;
+import io.github.asewhy.collections.base.iterators.PageIterator;
 import io.github.asewhy.collections.datasets.TestPageDataset;
 import io.github.asewhy.collections.datasets.TestRangeDataset;
 import org.junit.Assert;
@@ -32,7 +32,7 @@ public class CollectionIterationTest {
         var iterator = PageIterator.of(new TestPageDataset<>(pages));
         var last = 0;
 
-        for (var current: iterator.iterable()) {
+        for (var current: iterator) {
             last = current;
         }
 
@@ -54,7 +54,7 @@ public class CollectionIterationTest {
         var iterator = PageIterator.of(new TestRangeDataset<>(sample));
         var last = 0;
 
-        for (var current: iterator.iterable()) {
+        for (var current: iterator) {
             last = current;
         }
 

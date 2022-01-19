@@ -9,7 +9,6 @@ public abstract class Datasource<S, T> {
         this.source = source;
     }
 
-
     /**
      * Получить следующую выборку данных
      *

@@ -1,5 +1,6 @@
-package io.github.asewhy.collections.base;
+package io.github.asewhy.collections.base.iterators;
 
+import io.github.asewhy.collections.base.Datasource;
 import io.github.asewhy.collections.support.iIteratorProvider;
 
 import java.util.LinkedList;
