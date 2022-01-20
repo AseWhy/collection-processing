@@ -1,5 +1,6 @@
-package io.github.asewhy.collections;
+package io.github.asewhy.collections.factory;
 
+import io.github.asewhy.collections.*;
 import io.github.asewhy.collections.base.iterators.ChunkIterator;
 import io.github.asewhy.collections.base.iterators.PageIterator;
 import io.github.asewhy.collections.base.iterators.RangeIterator;
@@ -66,6 +67,21 @@ public class Iterator {
         return ChunkIterator.of(CallbackFutureUnsafeSource.of(function, tryCount));
     }
 
+    @Contract("_, _ -> new")
+    public static <T, K> @NotNull ChunkIterator<T> newSubpageChunkIterator(Iterable<K> subSource, Function<K, Collection<T>> function) {
+        return ChunkIterator.of(SubpageSource.of(subSource, function));
+    }
+
+    @Contract("_, _ -> new")
+    public static <T, K> @NotNull ChunkIterator<T> newSubpageUnsafeChunkIterator(Iterable<K> subSource, iUnsafeFunction<K, Collection<T>> function) {
+        return ChunkIterator.of(SubpageUnsafeSource.of(subSource, function));
+    }
+
+    @Contract("_, _, _ -> new")
+    public static <T, K> @NotNull ChunkIterator<T> newSubpageUnsafeChunkIterator(Iterable<K> subSource, iUnsafeFunction<K, Collection<T>> function, Integer tryCount) {
+        return ChunkIterator.of(SubpageUnsafeSource.of(subSource, function, tryCount));
+    }
+
     //
     // Итерирует потоком (страницы)
     //
@@ -113,6 +129,21 @@ public class Iterator {
     @Contract("_, _ -> new")
     public static <T> @NotNull PageIterator<T> newCallbackFutureUnsafePageIterator(iUnsafeFunction<Integer, Future<Collection<T>>> function, Integer tryCount) {
         return PageIterator.of(CallbackFutureUnsafeSource.of(function, tryCount));
+    }
+
+    @Contract("_, _ -> new")
+    public static <T, K> @NotNull PageIterator<T> newSubpagePageIterator(Iterable<K> subSource, Function<K, Collection<T>> function) {
+        return PageIterator.of(SubpageSource.of(subSource, function));
+    }
+
+    @Contract("_, _ -> new")
+    public static <T, K> @NotNull PageIterator<T> newSubpageUnsafePageIterator(Iterable<K> subSource, iUnsafeFunction<K, Collection<T>> function) {
+        return PageIterator.of(SubpageUnsafeSource.of(subSource, function));
+    }
+
+    @Contract("_, _, _ -> new")
+    public static <T, K> @NotNull PageIterator<T> newSubpageUnsafePageIterator(Iterable<K> subSource, iUnsafeFunction<K, Collection<T>> function, Integer tryCount) {
+        return PageIterator.of(SubpageUnsafeSource.of(subSource, function, tryCount));
     }
 
     //
