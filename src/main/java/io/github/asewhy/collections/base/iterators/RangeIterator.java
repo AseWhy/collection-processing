@@ -11,9 +11,9 @@ public class RangeIterator<T> implements iIteratorProvider<T> {
     private final Integer step;
     private final LinkedList<T> chunk;
 
-    private Integer marker;
+    private int marker;
 
-    protected RangeIterator(Datasource<?, T> source, Integer step) {
+    protected RangeIterator(Datasource<?, T> source, int step) {
         this.source = source;
         this.step = step;
         this.marker = 0;
@@ -42,7 +42,7 @@ public class RangeIterator<T> implements iIteratorProvider<T> {
         return chunk.pop();
     }
 
-    public static <T> RangeIterator<T> of(Datasource<?, T> source, Integer step) {
+    public static <T> RangeIterator<T> of(Datasource<?, T> source, int step) {
         return new RangeIterator<>(source, step);
     }
 

@@ -11,7 +11,7 @@ public class ChunkIterator<T> implements iIteratorProvider<Collection<T>> {
     private final Datasource<?, T> source;
     private Collection<T> chunk;
 
-    private Integer marker;
+    private int marker;
 
     protected ChunkIterator(Datasource<?, T> source) {
         this.source = source;

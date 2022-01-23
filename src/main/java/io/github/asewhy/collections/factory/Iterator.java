@@ -2,6 +2,7 @@ package io.github.asewhy.collections.factory;
 
 import io.github.asewhy.collections.*;
 import io.github.asewhy.collections.base.iterators.ChunkIterator;
+import io.github.asewhy.collections.base.iterators.NestedChunkIterator;
 import io.github.asewhy.collections.base.iterators.PageIterator;
 import io.github.asewhy.collections.base.iterators.RangeIterator;
 import io.github.asewhy.collections.support.iUnsafeBiFunction;
@@ -193,5 +194,14 @@ public class Iterator {
     @Contract("_, _ -> new")
     public static <T> @NotNull RangeIterator<T> newCallbackFutureUnsafeRangeIterator(iUnsafeBiFunction<Integer, Integer, Future<Collection<T>>> function, Integer tryCount) {
         return RangeIterator.of(CallbackFutureRangeUnsafeSource.of(function, tryCount));
+    }
+
+    //
+    // Итерирует вложенные итераторы
+    //
+
+    @Contract("_ -> new")
+    public static <T> @NotNull NestedChunkIterator<T> newNestedNestedIterator(Collection<Iterable<Collection<T>>> iterables) {
+        return NestedChunkIterator.of(NestedPageSource.of(iterables));
     }
 }

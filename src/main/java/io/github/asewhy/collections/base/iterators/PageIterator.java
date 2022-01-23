@@ -10,7 +10,7 @@ public class PageIterator<T> implements iIteratorProvider<T> {
     private final Datasource<?, T> source;
     private final LinkedList<T> chunk;
 
-    private Integer marker;
+    private int marker;
 
     protected PageIterator(Datasource<?, T> source) {
         this.source = source;

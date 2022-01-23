@@ -1,3 +1,4 @@
+io/github/asewhy/collections/NestedSource.class
 io/github/asewhy/collections/base/iterators/RangeIterator.class
 io/github/asewhy/collections/CallbackFutureSource.class
 io/github/asewhy/collections/base/UnsafeDatasource.class
@@ -15,6 +16,7 @@ io/github/asewhy/collections/CallbackPageUnsafeSource.class
 io/github/asewhy/collections/CallbackQueueUnsafeSource.class
 io/github/asewhy/collections/support/iIteratorProvider.class
 io/github/asewhy/collections/CallbackFutureRangeSource.class
+io/github/asewhy/collections/base/iterators/NestedChunkIterator.class
 io/github/asewhy/collections/support/iUnsafeFunction.class
 io/github/asewhy/collections/CallbackFutureRangeUnsafeSource.class
 io/github/asewhy/collections/CallbackPageSource.class

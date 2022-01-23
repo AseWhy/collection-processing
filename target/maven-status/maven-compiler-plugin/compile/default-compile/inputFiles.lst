@@ -7,6 +7,7 @@
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/CallbackQueueSource.java
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/base/iterators/RangeIterator.java
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/CallbackQueueUnsafeSource.java
+/home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/base/iterators/NestedChunkIterator.java
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/SubpageSource.java
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/CallbackRangeSource.java
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/CallbackPageUnsafeSource.java
@@ -17,6 +18,7 @@
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/CallbackFutureSource.java
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/CallbackPageSource.java
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/CallbackFutureRangeSource.java
+/home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/NestedSource.java
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/base/Datasource.java
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/CallbackFutureUnsafeSource.java
 /home/astecom/git/collection-processing/src/main/java/io/github/asewhy/collections/CallbackRangeUnsafeSource.java
