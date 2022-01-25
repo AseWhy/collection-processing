@@ -52,6 +52,6 @@ public class CallbackFutureUnsafeSource<T> extends UnsafeDatasource<iUnsafeFunct
 
     @Contract("_ -> new")
     public static <T> @NotNull CallbackFutureUnsafeSource<T> of(iUnsafeFunction<Integer, Future<Collection<T>>> function) {
-        return new CallbackFutureUnsafeSource<>(function, defaultRetryCount);
+        return new CallbackFutureUnsafeSource<>(function, IterableUtils.DEFAULT_RETRY_COUNT);
     }
 }

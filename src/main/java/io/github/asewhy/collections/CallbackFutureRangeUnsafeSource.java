@@ -50,6 +50,6 @@ public class CallbackFutureRangeUnsafeSource<T> extends UnsafeDatasource<iUnsafe
 
     @Contract("_ -> new")
     public static <T> @NotNull CallbackFutureRangeUnsafeSource<T> of(iUnsafeBiFunction<Integer, Integer, Future<Collection<T>>> function) {
-        return new CallbackFutureRangeUnsafeSource<>(function, defaultRetryCount);
+        return new CallbackFutureRangeUnsafeSource<>(function, IterableUtils.DEFAULT_RETRY_COUNT);
     }
 }

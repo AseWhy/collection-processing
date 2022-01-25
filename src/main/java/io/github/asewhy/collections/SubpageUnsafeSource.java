@@ -31,6 +31,6 @@ public class SubpageUnsafeSource<T, K> extends UnsafeDatasource<iUnsafeFunction<
 
     @Contract("_, _ -> new")
     public static <T, K> @NotNull SubpageUnsafeSource<T, K> of(@NotNull Iterable<K> subSource, iUnsafeFunction<K, Collection<T>> function) {
-        return new SubpageUnsafeSource<>(subSource, function, defaultRetryCount);
+        return new SubpageUnsafeSource<>(subSource, function, IterableUtils.DEFAULT_RETRY_COUNT);
     }
 }

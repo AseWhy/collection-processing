@@ -5,11 +5,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 
 public abstract class UnsafeDatasource<S, T> extends Datasource<S, T> {
-    /**
-     * Стандарное для всех количество попыток запроса перед трансляцией исключения
-     */
-    public static final Integer defaultRetryCount = 5;
-
     //
     // Количество попыток запроса перед трансляцией исключения
     //

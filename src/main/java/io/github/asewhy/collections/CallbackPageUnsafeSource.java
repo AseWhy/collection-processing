@@ -25,6 +25,6 @@ public class CallbackPageUnsafeSource<T> extends UnsafeDatasource<iUnsafeFunctio
 
     @Contract("_ -> new")
     public static <T> @NotNull CallbackPageUnsafeSource<T> of(iUnsafeFunction<Integer, Collection<T>> function) {
-        return new CallbackPageUnsafeSource<>(function, defaultRetryCount);
+        return new CallbackPageUnsafeSource<>(function, IterableUtils.DEFAULT_RETRY_COUNT);
     }
 }

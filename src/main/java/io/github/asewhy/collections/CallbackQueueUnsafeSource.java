@@ -25,6 +25,6 @@ public class CallbackQueueUnsafeSource<T> extends UnsafeDatasource<iUnsafeSuppli
 
     @Contract("_ -> new")
     public static <T> @NotNull CallbackQueueUnsafeSource<T> of(iUnsafeSupplier<Collection<T>> supplier) {
-        return new CallbackQueueUnsafeSource<>(supplier, defaultRetryCount);
+        return new CallbackQueueUnsafeSource<>(supplier, IterableUtils.DEFAULT_RETRY_COUNT);
     }
 }

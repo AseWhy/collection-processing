@@ -25,6 +25,6 @@ public class CallbackRangeUnsafeSource<T> extends UnsafeDatasource<iUnsafeBiFunc
 
     @Contract("_ -> new")
     public static <T> @NotNull CallbackRangeUnsafeSource<T> of(iUnsafeBiFunction<Integer, Integer, Collection<T>> function) {
-        return new CallbackRangeUnsafeSource<>(function, defaultRetryCount);
+        return new CallbackRangeUnsafeSource<>(function, IterableUtils.DEFAULT_RETRY_COUNT);
     }
 }
