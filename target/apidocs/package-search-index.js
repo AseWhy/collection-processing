@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"io.github.asewhy.collections"},{"l":"io.github.asewhy.collections.base"},{"l":"io.github.asewhy.collections.base.iterators"},{"l":"io.github.asewhy.collections.factory"},{"l":"io.github.asewhy.collections.support"}]
