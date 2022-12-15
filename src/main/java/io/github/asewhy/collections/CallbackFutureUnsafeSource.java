@@ -1,21 +1,19 @@
 package io.github.asewhy.collections;
 
 import io.github.asewhy.collections.base.UnsafeDatasource;
-import io.github.asewhy.collections.support.iUnsafeFunction;
+import io.github.asewhy.collections.support.UnsafeFunction;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-import java.util.function.Function;
 
 @SuppressWarnings("unused")
-public class CallbackFutureUnsafeSource<T> extends UnsafeDatasource<iUnsafeFunction<Integer, Future<Collection<T>>>, T> {
+public class CallbackFutureUnsafeSource<T> extends UnsafeDatasource<UnsafeFunction<Integer, Future<Collection<T>>>, T> {
     protected Future<Collection<T>> await;
 
-    public CallbackFutureUnsafeSource(iUnsafeFunction<Integer, Future<Collection<T>>> function, Integer retryCount) {
+    public CallbackFutureUnsafeSource(UnsafeFunction<Integer, Future<Collection<T>>> function, Integer retryCount) {
         super(function, retryCount);
         getNextSample(0, 0);
     }
@@ -46,12 +44,12 @@ public class CallbackFutureUnsafeSource<T> extends UnsafeDatasource<iUnsafeFunct
     }
 
     @Contract("_, _ -> new")
-    public static <T> @NotNull CallbackFutureUnsafeSource<T> of(iUnsafeFunction<Integer, Future<Collection<T>>> function, Integer retryCount) {
+    public static <T> @NotNull CallbackFutureUnsafeSource<T> of(UnsafeFunction<Integer, Future<Collection<T>>> function, Integer retryCount) {
         return new CallbackFutureUnsafeSource<>(function, retryCount);
     }
 
     @Contract("_ -> new")
-    public static <T> @NotNull CallbackFutureUnsafeSource<T> of(iUnsafeFunction<Integer, Future<Collection<T>>> function) {
+    public static <T> @NotNull CallbackFutureUnsafeSource<T> of(UnsafeFunction<Integer, Future<Collection<T>>> function) {
         return new CallbackFutureUnsafeSource<>(function, IterableUtils.DEFAULT_RETRY_COUNT);
     }
 }

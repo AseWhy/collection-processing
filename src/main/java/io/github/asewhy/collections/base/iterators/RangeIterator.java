@@ -1,12 +1,12 @@
 package io.github.asewhy.collections.base.iterators;
 
 import io.github.asewhy.collections.base.Datasource;
-import io.github.asewhy.collections.support.iIteratorProvider;
+import io.github.asewhy.collections.support.IteratorProvider;
 
 import java.util.LinkedList;
 
 @SuppressWarnings("unused")
-public class RangeIterator<T> implements iIteratorProvider<T> {
+public class RangeIterator<T> implements IteratorProvider<T> {
     private final Datasource<?, T> source;
     private final Integer step;
     private final LinkedList<T> chunk;

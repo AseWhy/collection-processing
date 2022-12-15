@@ -4,14 +4,14 @@ import java.util.Iterator;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-public interface iIteratorProvider<T> extends Iterator<T>, Iterable<T> {
+public interface IteratorProvider<T> extends Iterator<T>, Iterable<T> {
     /**
      * Получить итератор (себя) из себя
      *
      * @return итератор (себя)
      */
     default Iterator<T> iterator() {
-        return iIteratorProvider.this;
+        return IteratorProvider.this;
     }
 
     /**

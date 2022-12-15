@@ -5,9 +5,7 @@ import io.github.asewhy.collections.base.iterators.ChunkIterator;
 import io.github.asewhy.collections.base.iterators.NestedChunkIterator;
 import io.github.asewhy.collections.base.iterators.PageIterator;
 import io.github.asewhy.collections.base.iterators.RangeIterator;
-import io.github.asewhy.collections.support.iUnsafeBiFunction;
-import io.github.asewhy.collections.support.iUnsafeFunction;
-import io.github.asewhy.collections.support.iUnsafeSupplier;
+import io.github.asewhy.collections.support.UnsafeSupplier;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -82,7 +80,7 @@ public class Iterator {
     }
 
     @Contract("_, _ -> new")
-    public static <T> @NotNull RangeIterator<T> newCallbackQueueUnsafeRangeIterator(iUnsafeSupplier<Collection<T>> supplier, Integer tryCount) {
+    public static <T> @NotNull RangeIterator<T> newCallbackQueueUnsafeRangeIterator(UnsafeSupplier<Collection<T>> supplier, Integer tryCount) {
         return RangeIterator.of(CallbackQueueUnsafeSource.of(supplier, tryCount));
     }
 

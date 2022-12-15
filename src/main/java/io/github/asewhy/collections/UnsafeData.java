@@ -1,19 +1,14 @@
 package io.github.asewhy.collections;
 
-import io.github.asewhy.collections.base.UnsafeDatasource;
-import io.github.asewhy.collections.support.iUnsafeFunction;
-import io.github.asewhy.collections.support.iUnsafeSupplier;
+import io.github.asewhy.collections.support.UnsafeSupplier;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collection;
-import java.util.function.Function;
-
 public class UnsafeData<T> {
-    protected final iUnsafeSupplier<T> receiver;
+    protected final UnsafeSupplier<T> receiver;
     protected final Integer retryCount;
 
-    public UnsafeData(iUnsafeSupplier<T> receiver, Integer retryCount) {
+    public UnsafeData(UnsafeSupplier<T> receiver, Integer retryCount) {
         this.receiver = receiver;
         this.retryCount = retryCount;
     }
@@ -37,12 +32,12 @@ public class UnsafeData<T> {
     }
 
     @Contract("_ -> new")
-    public static <T> @NotNull UnsafeData<T> of(@NotNull iUnsafeSupplier<T> supplier) {
+    public static <T> @NotNull UnsafeData<T> of(@NotNull UnsafeSupplier<T> supplier) {
         return new UnsafeData<>(supplier, IterableUtils.DEFAULT_RETRY_COUNT);
     }
 
     @Contract("_, _ -> new")
-    public static <T> @NotNull UnsafeData<T> of(@NotNull iUnsafeSupplier<T> supplier, Integer retryCount) {
+    public static <T> @NotNull UnsafeData<T> of(@NotNull UnsafeSupplier<T> supplier, Integer retryCount) {
         return new UnsafeData<>(supplier, retryCount);
     }
 }

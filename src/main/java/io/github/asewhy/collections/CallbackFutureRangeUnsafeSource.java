@@ -1,8 +1,7 @@
 package io.github.asewhy.collections;
 
 import io.github.asewhy.collections.base.UnsafeDatasource;
-import io.github.asewhy.collections.support.iUnsafeBiFunction;
-import io.github.asewhy.collections.support.iUnsafeFunction;
+import io.github.asewhy.collections.support.UnsafeBiFunction;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,10 +10,10 @@ import java.util.Collection;
 import java.util.concurrent.Future;
 
 @SuppressWarnings("unused")
-public class CallbackFutureRangeUnsafeSource<T> extends UnsafeDatasource<iUnsafeBiFunction<Integer, Integer, Future<Collection<T>>>, T> {
+public class CallbackFutureRangeUnsafeSource<T> extends UnsafeDatasource<UnsafeBiFunction<Integer, Integer, Future<Collection<T>>>, T> {
     protected Future<Collection<T>> await;
 
-    public CallbackFutureRangeUnsafeSource(iUnsafeBiFunction<Integer, Integer, Future<Collection<T>>> function, Integer retryCount) {
+    public CallbackFutureRangeUnsafeSource(UnsafeBiFunction<Integer, Integer, Future<Collection<T>>> function, Integer retryCount) {
         super(function, retryCount);
     }
 
@@ -44,12 +43,12 @@ public class CallbackFutureRangeUnsafeSource<T> extends UnsafeDatasource<iUnsafe
     }
 
     @Contract("_, _ -> new")
-    public static <T> @NotNull CallbackFutureRangeUnsafeSource<T> of(iUnsafeBiFunction<Integer, Integer, Future<Collection<T>>> function, Integer retryCount) {
+    public static <T> @NotNull CallbackFutureRangeUnsafeSource<T> of(UnsafeBiFunction<Integer, Integer, Future<Collection<T>>> function, Integer retryCount) {
         return new CallbackFutureRangeUnsafeSource<>(function, retryCount);
     }
 
     @Contract("_ -> new")
-    public static <T> @NotNull CallbackFutureRangeUnsafeSource<T> of(iUnsafeBiFunction<Integer, Integer, Future<Collection<T>>> function) {
+    public static <T> @NotNull CallbackFutureRangeUnsafeSource<T> of(UnsafeBiFunction<Integer, Integer, Future<Collection<T>>> function) {
         return new CallbackFutureRangeUnsafeSource<>(function, IterableUtils.DEFAULT_RETRY_COUNT);
     }
 }
